@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Berita - Company Profile</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Memuat font Lexend Deca -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700&family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    
+    <!-- Menambahkan CDN Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        /* Font Utama untuk UI */
+        body { font-family: 'Lexend Deca', sans-serif; }
+        /* Font Khusus untuk Isi Artikel (Lebih nyaman dibaca panjang) */
+        .article-content { font-family: 'Merriweather', serif; }
+        
+        /* Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- 
+      ==================================================
+      DETAIL BERITA SECTION
+      ==================================================
+    -->
+    <section class="py-12 lg:py-20">
+        <div class="container mx-auto max-w-7xl px-4 lg:px-8">
+            
+            <!-- Breadcrumb -->
+            <nav class="flex mb-8 text-sm text-gray-500" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="#" class="inline-flex items-center hover:text-teal-600">
+                            <i class="fa-solid fa-house mr-2"></i> Beranda
+                        </a>
+                    </li>
+                    <li>
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-chevron-right mx-2 text-gray-400 text-xs"></i>
+                            <a href="#" class="hover:text-teal-600">Berita</a>
+                        </div>
+                    </li>
+                    <li aria-current="page">
+                        <div class="flex items-center">
+                            <i class="fa-solid fa-chevron-right mx-2 text-gray-400 text-xs"></i>
+                            <span class="text-gray-900 font-medium truncate max-w-[200px] sm:max-w-xs">BNI Raih Dua Penghargaan di ICXA 2025...</span>
+                        </div>
+                    </li>
+                </ol>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- === KOLOM KIRI (8/12): KONTEN UTAMA === -->
+                <div class="lg:col-span-8">
+                    
+                    <!-- Header Artikel -->
+                    <header class="mb-8">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-bold px-2.5 py-0.5 rounded border border-teal-200">Prestasi</span>
+                            <span class="text-gray-500 text-sm"><i class="fa-regular fa-calendar mr-1"></i> 14 November 2025</span>
+                        </div>
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                            BNI Raih Dua Penghargaan Bergengsi di ICXA 2025 Berkat Inovasi Digital
+                        </h1>
+                        
+                        <!-- Author Info & Mobile Share -->
+                        <div class="flex flex-col sm:flex-row sm:items-center justify-between border-b border-gray-200 pb-6 mb-6 gap-4">
+                            <div class="flex items-center gap-3">
+                                <img src="https://placehold.co/50x50/e2e8f0/94a3b8?text=JD" alt="Penulis" class="w-10 h-10 rounded-full">
+                                <div>
+                                    <p class="text-sm font-bold text-gray-900">Oleh Tim Redaksi</p>
+                                    <p class="text-xs text-gray-500">Corporate Communications</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Share Icons (Mobile & Tablet View - Horizontal) -->
+                            <div class="flex items-center gap-2 lg:hidden">
+                                <span class="text-sm text-gray-500 mr-2">Bagikan:</span>
+                                <a href="#" class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center hover:bg-blue-700 transition"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full bg-sky-500 text-white flex items-center justify-center hover:bg-sky-600 transition"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center hover:bg-green-600 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                                <a href="#" class="w-8 h-8 rounded-full bg-blue-800 text-white flex items-center justify-center hover:bg-blue-900 transition"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Featured Image -->
+                    <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-lg mb-10">
+                        <img src="https://placehold.co/800x450/14b8a6/white?text=Foto+Penghargaan+BNI&font=lexenddeca" alt="Foto Penghargaan" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
+                            <p class="text-white text-xs italic opacity-90">Dokumentasi penyerahan penghargaan di ajang ICXA 2025, Jakarta.</p>
+                        </div>
+                    </div>
+
+                    <!-- Wrapper Konten + Sidebar Share (Desktop) -->
+                    <div class="flex gap-8 relative">
+                        
+                        <!-- Sticky Share Sidebar (Desktop Only - Kiri) -->
+                        <div class="hidden lg:flex flex-col gap-4 sticky top-32 h-fit w-12 flex-shrink-0">
+                            <p class="text-xs font-bold text-gray-400 text-center mb-2 uppercase tracking-widest" style="writing-mode: vertical-rl; transform: rotate(180deg);">Share</p>
+                            <a href="#" class="w-10 h-10 rounded-full border border-gray-200 text-gray-500 flex items-center justify-center hover:bg-blue-600 hover:text-white hover:border-blue-600 transition tooltip" title="Facebook">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-gray-200 text-gray-500 flex items-center justify-center hover:bg-black hover:text-white hover:border-black transition" title="X (Twitter)">
+                                <i class="fa-brands fa-x-twitter"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-gray-200 text-gray-500 flex items-center justify-center hover:bg-blue-700 hover:text-white hover:border-blue-700 transition" title="LinkedIn">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 rounded-full border border-gray-200 text-gray-500 flex items-center justify-center hover:bg-green-500 hover:text-white hover:border-green-500 transition" title="WhatsApp">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </a>
+                            <div class="h-12 w-[1px] bg-gray-200 mx-auto mt-2"></div>
+                        </div>
+
+                        <!-- Isi Artikel -->
+                        <article class="article-content text-gray-700 text-lg leading-relaxed space-y-6 max-w-none">
+                            <p class="first-letter:text-5xl first-letter:font-bold first-letter:text-teal-600 first-letter:mr-3 first-letter:float-left">
+                                Jakarta, 14 November 2025 — PT Bank Negara Indonesia (Persero) Tbk. kembali menorehkan prestasi gemilang di kancah internasional. Dalam ajang Indonesia Customer Experience Awards (ICXA) 2025 yang berlangsung semalam, BNI berhasil membawa pulang dua penghargaan emas sekaligus.
+                            </p>
+                            <p>
+                                Penghargaan ini diberikan sebagai pengakuan atas inovasi berkelanjutan BNI dalam menghadirkan pengalaman nasabah yang seamless melalui transformasi digital. Aplikasi mobile banking terbaru, <strong class="text-gray-900">Wondr by BNI</strong>, menjadi sorotan utama juri karena kemampuannya mengintegrasikan layanan perbankan, investasi, dan gaya hidup dalam satu platform yang intuitif.
+                            </p>
+                            
+                            <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4 font-sans">Transformasi Digital yang Berpusat pada Nasabah</h3>
+                            
+                            <p>
+                                Direktur Utama BNI, dalam sambutannya, menyampaikan apresiasi kepada seluruh nasabah setia yang telah mempercayakan kebutuhan finansialnya kepada BNI. "Penghargaan ini bukan hanya untuk kami, tapi untuk seluruh nasabah BNI. Feedback Anda adalah pendorong utama inovasi kami," ujarnya.
+                            </p>
+                            
+                            <blockquote class="border-l-4 border-teal-500 pl-6 py-2 my-8 bg-teal-50 rounded-r-lg italic text-gray-800">
+                                "Kami percaya bahwa teknologi harus memudahkan, bukan menyulitkan. Wondr hadir untuk menjawab kebutuhan nasabah yang menginginkan segala urusan perbankan selesai dalam genggaman."
+                                <footer class="text-sm text-gray-500 mt-2 not-italic font-sans">— Direktur Digital & IT BNI</footer>
+                            </blockquote>
+
+                            <p>
+                                Selain aplikasi mobile, BNI juga diakui atas layanan <em class="text-gray-900">BNI Direct</em> yang membantu ribuan pelaku bisnis UMKM hingga korporasi dalam mengelola arus kas mereka dengan lebih efisien. Fitur-fitur baru seperti <em>Virtual Account Management</em> dan integrasi API yang mudah telah menetapkan standar baru dalam layanan perbankan korporat di Indonesia.
+                            </p>
+
+                            <h3 class="text-2xl font-bold text-gray-900 mt-8 mb-4 font-sans">Komitmen Berkelanjutan</h3>
+                            
+                            <p>
+                                Ke depan, BNI berkomitmen untuk terus mengembangkan ekosistem digital yang tidak hanya fokus pada transaksi finansial, tetapi juga mendukung pertumbuhan ekonomi hijau dan inklusi keuangan di seluruh pelosok negeri.
+                            </p>
+                            
+                            <div class="bg-gray-100 p-6 rounded-xl mt-8 border border-gray-200">
+                                <h4 class="text-lg font-bold text-gray-900 mb-2 font-sans">Ringkasan Penghargaan:</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-base font-sans">
+                                    <li><strong>Best Digital Customer Experience</strong> untuk kategori Perbankan Konvensional.</li>
+                                    <li><strong>Most Innovative Banking App</strong> untuk aplikasi Wondr by BNI.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="mt-12 pt-6 border-t border-gray-200">
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-sm font-semibold text-gray-500 mr-2 py-1">Tags:</span>
+                            <a href="#" class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm hover:bg-teal-100 hover:text-teal-700 transition">Penghargaan</a>
+                            <a href="#" class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm hover:bg-teal-100 hover:text-teal-700 transition">Wondr</a>
+                            <a href="#" class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm hover:bg-teal-100 hover:text-teal-700 transition">Digital Banking</a>
+                            <a href="#" class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 text-sm hover:bg-teal-100 hover:text-teal-700 transition">BUMN</a>
+                        </div>
+                    </div>
+
+                </div> <!-- Akhir Kolom Kiri -->
+
+
+                <!-- === KOLOM KANAN (4/12): SIDEBAR === -->
+                <div class="lg:col-span-4 space-y-8">
+                    
+                    <!-- Widget: Berita Populer -->
+                    <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sticky top-32">
+                        <div class="flex items-center justify-between mb-6 border-b border-gray-100 pb-4">
+                            <h3 class="text-lg font-bold text-gray-900">Berita Populer</h3>
+                            <span class="text-teal-600 text-xs font-bold bg-teal-50 px-2 py-1 rounded">Trending</span>
+                        </div>
+
+                        <div class="space-y-6">
+                            <!-- Item 1 -->
+                            <a href="#" class="flex gap-4 group">
+                                <span class="text-2xl font-bold text-gray-200 group-hover:text-teal-500 transition">01</span>
+                                <div>
+                                    <h4 class="text-sm font-bold text-gray-900 line-clamp-2 group-hover:text-teal-600 transition">Tips Aman Bertransaksi Online Jelang Akhir Tahun</h4>
+                                    <p class="text-xs text-gray-500 mt-1">11 Nov 2025</p>
+                                </div>
+                            </a>
+                            <!-- Item 2 -->
+                            <a href="#" class="flex gap-4 group">
+                                <span class="text-2xl font-bold text-gray-200 group-hover:text-teal-500 transition">02</span>
+                                <div>
+                                    <h4 class="text-sm font-bold text-gray-900 line-clamp-2 group-hover:text-teal-600 transition">Jadwal Operasional Bank Selama Libur Lebaran</h4>
+                                    <p class="text-xs text-gray-500 mt-1">10 Nov 2025</p>
+                                </div>
+                            </a>
+                            <!-- Item 3 -->
+                            <a href="#" class="flex gap-4 group">
+                                <span class="text-2xl font-bold text-gray-200 group-hover:text-teal-500 transition">03</span>
+                                <div>
+                                    <h4 class="text-sm font-bold text-gray-900 line-clamp-2 group-hover:text-teal-600 transition">BNI Luncurkan Program KPR Bunga Ringan untuk Milenial</h4>
+                                    <p class="text-xs text-gray-500 mt-1">08 Nov 2025</p>
+                                </div>
+                            </a>
+                            <!-- Item 4 -->
+                            <a href="#" class="flex gap-4 group">
+                                <span class="text-2xl font-bold text-gray-200 group-hover:text-teal-500 transition">04</span>
+                                <div>
+                                    <h4 class="text-sm font-bold text-gray-900 line-clamp-2 group-hover:text-teal-600 transition">Cara Mudah Top Up E-Wallet via Mobile Banking</h4>
+                                    <p class="text-xs text-gray-500 mt-1">05 Nov 2025</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Widget: Berita Lainnya (Thumbnail) -->
+                    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                        <h3 class="text-lg font-bold text-gray-900 mb-6">Baca Juga</h3>
+                        <div class="space-y-5">
+                            <!-- Item 1 -->
+                            <a href="#" class="flex gap-4 group items-start">
+                                <div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+                                    <img src="https://placehold.co/100x100/f0f9ff/0284c7?text=News&font=lexenddeca" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Thumb">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-teal-600 transition">Program Beasiswa BNI untuk Mahasiswa Berprestasi</h4>
+                                    <p class="text-xs text-gray-500 mt-1">CSR • 2 hari lalu</p>
+                                </div>
+                            </a>
+                            <!-- Item 2 -->
+                            <a href="#" class="flex gap-4 group items-start">
+                                <div class="w-20 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+                                    <img src="https://placehold.co/100x100/fefce8/ca8a04?text=Invest&font=lexenddeca" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" alt="Thumb">
+                                </div>
+                                <div>
+                                    <h4 class="text-sm font-semibold text-gray-900 line-clamp-2 group-hover:text-teal-600 transition">Mengenal Instrumen Investasi Reksadana untuk Pemula</h4>
+                                    <p class="text-xs text-gray-500 mt-1">Edukasi • 3 hari lalu</p>
+                                </div>
+                            </a>
+                        </div>
+                        <a href="#" class="block w-full mt-6 text-center py-2 rounded-lg border border-teal-600 text-teal-600 text-sm font-bold hover:bg-teal-50 transition">Lihat Semua Berita</a>
+                    </div>
+
+                    <!-- Widget: Newsletter (Mini) -->
+                    <div class="rounded-2xl bg-gradient-to-br from-teal-600 to-teal-800 p-6 text-white text-center">
+                        <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm">
+                            <i class="fa-regular fa-envelope text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">Jangan Ketinggalan!</h3>
+                        <p class="text-xs text-teal-100 mb-4">Dapatkan berita terbaru langsung di email Anda.</p>
+                        <form class="space-y-2">
+                            <input type="email" placeholder="Email Anda" class="w-full px-4 py-2 rounded-lg text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-teal-300">
+                            <button class="w-full bg-yellow-400 text-teal-900 py-2 rounded-lg text-sm font-bold hover:bg-yellow-300 transition">Subscribe</button>
+                        </form>
+                    </div>
+
+                </div> <!-- Akhir Kolom Kanan (Sidebar) -->
+
+            </div>
+            
+            <!-- Navigasi Postingan Berikutnya (Bottom) -->
+            <div class="mt-16 pt-8 border-t border-gray-200 flex flex-col sm:flex-row justify-between gap-6">
+                <a href="#" class="group flex items-center gap-4 text-left max-w-xs">
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-teal-50 group-hover:text-teal-600 group-hover:border-teal-200 transition">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </div>
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Berita Sebelumnya</p>
+                        <h4 class="text-sm font-bold text-gray-900 line-clamp-1 group-hover:text-teal-600 transition">Laporan Keuangan Q3 2025</h4>
+                    </div>
+                </a>
+                <a href="#" class="group flex items-center gap-4 text-right justify-end max-w-xs ml-auto">
+                    <div>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide">Berita Selanjutnya</p>
+                        <h4 class="text-sm font-bold text-gray-900 line-clamp-1 group-hover:text-teal-600 transition">Kolaborasi dengan Fintech Global</h4>
+                    </div>
+                    <div class="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 group-hover:bg-teal-50 group-hover:text-teal-600 group-hover:border-teal-200 transition">
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
