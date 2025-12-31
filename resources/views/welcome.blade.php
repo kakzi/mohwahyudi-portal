@@ -482,9 +482,9 @@
                 <!-- Brand -->
                 <div class="lg:col-span-2 space-y-6">
                     <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center text-slate-900">
+                        {{-- <div class="w-10 h-10 bg-amber-500 rounded-xl flex items-center justify-center text-slate-900">
                             <i data-lucide="book-open" class="w-6 h-6"></i>
-                        </div>
+                        </div> --}}
                         <span class="text-2xl font-extrabold tracking-tight">Yahqi<span class="text-amber-500">Publisher</span></span>
                     </div>
                     <p class="text-slate-400 leading-relaxed max-w-md text-lg">
