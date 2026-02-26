@@ -45,65 +45,56 @@
     <nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-xl border-b border-slate-100 transition-all duration-300 h-20 flex items-center" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="flex items-center justify-between">
-                <div class="shrink-0 cursor-pointer group flex items-center gap-2">
-                    {{-- <div class="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center text-white transition-transform group-hover:rotate-12">
-                        <i data-lucide="shield-check" class="w-5 h-5"></i>
-                    </div> --}}
+                <div class="shrink-0 cursor-pointer group flex items-center gap-2" onclick="window.location.href='{{ route('home.index', ['locale' => app()->getLocale()]) }}'">
                     <span class="text-2xl font-black text-slate-700 tracking-tighter">
                         Yahqi<span class="text-amber-500">Publisher</span>
                     </span>
                 </div>
 
-                <!-- Desktop Menu (Icons Removed) -->
                 <div class="hidden md:flex items-center space-x-6">
                     <div class="flex items-baseline space-x-1">
-                        <a href="#home" class="px-4 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-teal-600 transition-all">
-                            <span data-t-id="Beranda" data-t-en="Home">Beranda</span>
+                        <a href="{{ route('home.index', ['locale' => app()->getLocale()]) }}" 
+                           class="px-4 py-2 rounded-full text-sm font-bold text-teal-600 bg-teal-50 transition-all">
+                            <span>Beranda</span>
                         </a>
-                        <a href="#tentang" class="px-4 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-teal-600 transition-all">
-                            <span data-t-id="Tentang" data-t-en="About">Tentang</span>
+
+                        <a href="{{ route('tentang.index', ['locale' => app()->getLocale()]) }}#tentang" 
+                           class="px-4 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-teal-600 transition-all">
+                            <span>Tentang</span>
                         </a>
-                        <a href="#perjalanan" class="px-4 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-teal-600 transition-all">
-                            <span data-t-id="Perjalanan" data-t-en="Journey">Perjalanan</span>
+
+                        <a href="{{ route('perjalanan.index', ['locale' => app()->getLocale()]) }}#perjalanan" 
+                           class="px-4 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-teal-600 transition-all">
+                            <span>Perjalanan</span>
                         </a>
-                        <a href="#karya" class="px-4 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-teal-600 transition-all">
-                            <span data-t-id="Karya" data-t-en="Works">Karya</span>
+
+                        <a href="{{ route('karya.index', ['locale' => app()->getLocale()]) }}" 
+                           class="px-4 py-2 rounded-full text-sm font-bold text-slate-600 hover:text-teal-600 transition-all">
+                            <span>Karya</span>
                         </a>
                     </div>
 
-                    
+                    <a href="{{ route('home.index', ['locale' => app()->getLocale()]) }}#kontak" class="bg-teal-600 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-lg shadow-teal-200/50">Hubungi Saya</a>
 
-                    <a href="#kontak" class="bg-teal-600 hover:bg-slate-800 text-white px-6 py-2.5 rounded-full text-sm font-bold transition-all transform hover:scale-105 shadow-lg shadow-teal-200/50" data-t-id="Hubungi Saya" data-t-en="Contact Me">Hubungi Saya</a>
-
-                    <!-- Language Dropdown -->
                     <div class="relative inline-block text-left">
-                        <button id="lang-dropdown-btn" class="flex items-center gap-2 bg-slate-100 border border-slate-200 px-4 py-2 rounded-full text-xs font-black uppercase transition-all hover:bg-slate-200">
-                            {{-- <i data-lucide="languages" class="w-4 h-4 text-slate-500"></i> --}}
-                            <span id="current-lang-flag" class="text-lg">🇮🇩</span>
-                            <span id="current-lang-label">ID</span>
-                            <i data-lucide="chevron-down" class="w-3 h-3 text-slate-400"></i>
+                        <button id="lang-dropdown-btn" class="flex items-center gap-2 bg-slate-100 text-slate-700 border border-slate-200 px-4 py-2 rounded-full text-xs font-bold shadow-sm transition-all hover:bg-slate-200 hover:shadow-md focus:ring-2 focus:ring-slate-300 focus:outline-none">
+                            <span id="current-lang-label" class="tracking-wide">{{ app()->getLocale() == 'id' ? 'Bahasa' : 'English' }}</span>
+                            <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-slate-400"></i>
                         </button>
                         
-                        <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-44 bg-white border border-slate-100 rounded-2xl shadow-2xl p-2 z-60 origin-top-right transform scale-95 opacity-0">
-                            <button onclick="changeLang('id')" class="lang-option w-full text-left px-4 py-3 rounded-xl text-xs font-bold transition-all hover:bg-slate-50 flex items-center justify-between" id="opt-id">
-                                <span class="flex items-center gap-3">
-                                    <span class="text-lg">🇮🇩</span>
-                                    <span>Bahasa (ID)</span>
-                                </span>
-                                <i data-lucide="check" class="w-3 h-3 text-teal-600 hidden"></i>
-                            </button>
-                            <button onclick="changeLang('en')" class="lang-option w-full text-left px-4 py-3 rounded-xl text-xs font-bold transition-all hover:bg-slate-50 flex items-center justify-between" id="opt-en">
-                                <span class="flex items-center gap-3">
-                                    <span class="text-lg">🇺🇸</span>
-                                    <span>English (EN)</span>
-                                </span>
-                                <i data-lucide="check" class="w-3 h-3 text-teal-600 hidden"></i>
-                            </button>
+                        <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-32 bg-white border border-slate-100 rounded-2xl shadow-xl p-1.5 z-60 origin-top-right transform scale-95 opacity-0 transition-all duration-200">
+                            <a href="{{ route('lang.switch', 'id') }}" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold transition-all hover:bg-slate-50 flex items-center justify-between {{ app()->getLocale() == 'id' ? 'bg-teal-50 text-teal-700 hover:bg-teal-100' : 'text-slate-600' }}">
+                                <span>Indonesia</span>
+                                @if(app()->getLocale() == 'id') <i data-lucide="check" class="w-4 h-4 text-teal-600"></i> @endif
+                            </a>
+                            <a href="{{ route('lang.switch', 'en') }}" class="w-full text-left px-3 py-2.5 rounded-xl text-xs font-bold transition-all hover:bg-slate-50 flex items-center justify-between {{ app()->getLocale() == 'en' ? 'bg-teal-50 text-teal-700 hover:bg-teal-100' : 'text-slate-600' }}">
+                                <span>English</span>
+                                @if(app()->getLocale() == 'en') <i data-lucide="check" class="w-4 h-4 text-teal-600"></i> @endif
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mobile Toggle -->
                 <div class="-mr-2 flex md:hidden items-center gap-4">
                     <button type="button" id="mobile-menu-btn" class="inline-flex items-center justify-center p-3 rounded-xl text-slate-500 hover:text-teal-600 hover:bg-slate-50 focus:outline-none transition-all">
                         <i data-lucide="menu" class="w-7 h-7" id="menu-icon"></i>
@@ -111,43 +102,26 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Mobile Menu Panel (Icons Enabled Here Only) -->
+
         <div class="hidden fixed top-20 left-0 w-full bg-white border-t border-slate-100 shadow-2xl z-40 md:hidden" id="mobile-menu">
-            <div class="px-6 pt-6 pb-10 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
-                <a href="#home" class="mobile-nav-link flex items-center gap-4 text-xl font-bold text-slate-700 p-3 rounded-2xl hover:bg-slate-50 transition-all">
-                    <i data-lucide="home" class="w-6 h-6 text-teal-600"></i>
-                    <span data-t-id="Beranda" data-t-en="Home">Beranda</span>
+            <div class="px-6 pt-6 pb-10 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto no-scrollbar">
+                <a href="{{ route('home.index', ['locale' => app()->getLocale()]) }}" class="mobile-nav-link flex items-center gap-4 text-xl font-bold text-slate-700 p-3 rounded-2xl hover:bg-slate-50 transition-all">
+                    <i data-lucide="home" class="w-6 h-6 text-teal-600"></i> <span>Beranda</span>
                 </a>
-                <a href="#tentang" class="mobile-nav-link flex items-center gap-4 text-xl font-bold text-slate-700 p-3 rounded-2xl hover:bg-slate-50 transition-all">
-                    <i data-lucide="user" class="w-6 h-6 text-teal-600"></i>
-                    <span data-t-id="Tentang" data-t-en="About">Tentang</span>
-                </a>
-                <a href="#perjalanan" class="mobile-nav-link flex items-center gap-4 text-xl font-bold text-slate-700 p-3 rounded-2xl hover:bg-slate-50 transition-all">
-                    <i data-lucide="milestone" class="w-6 h-6 text-teal-600"></i>
-                    <span data-t-id="Perjalanan" data-t-en="Journey">Perjalanan</span>
-                </a>
-                <a href="#karya" class="mobile-nav-link flex items-center gap-4 text-xl font-bold text-slate-700 p-3 rounded-2xl hover:bg-slate-50 transition-all">
-                    <i data-lucide="layout-grid" class="w-6 h-6 text-teal-600"></i>
-                    <span data-t-id="Karya" data-t-en="Works">Karya</span>
+                <a href="{{ route('karya.index', ['locale' => app()->getLocale()]) }}" class="mobile-nav-link flex items-center gap-4 text-xl font-bold text-teal-700 bg-teal-50 p-3 rounded-2xl transition-all">
+                    <i data-lucide="layout-grid" class="w-6 h-6 text-teal-600"></i> <span>Karya</span>
                 </a>
                 
-                <!-- Mobile Language Selector -->
                 <div class="py-4 border-t border-slate-100 flex items-center justify-between">
                     <span class="text-sm font-bold text-slate-500 uppercase tracking-widest">Language</span>
                     <div class="flex bg-slate-100 p-1 rounded-xl border border-slate-200 scale-90">
-                        <button onclick="changeLang('id')" id="m-lang-id" class="px-5 py-2 rounded-lg text-xs font-black uppercase transition-all flex items-center gap-2">
-                            <span>🇮🇩</span> ID
-                        </button>
-                        <button onclick="changeLang('en')" id="m-lang-en" class="px-5 py-2 rounded-lg text-xs font-black uppercase transition-all flex items-center gap-2">
-                            <span>🇺🇸</span> EN
-                        </button>
+                        <a href="{{ route('lang.switch', 'id') }}" class="px-5 py-2 rounded-lg text-xs font-black uppercase transition-all {{ app()->getLocale() == 'id' ? 'bg-white shadow-sm text-teal-700' : 'text-slate-500' }}">🇮🇩 ID</a>
+                        <a href="{{ route('lang.switch', 'en') }}" class="px-5 py-2 rounded-lg text-xs font-black uppercase transition-all {{ app()->getLocale() == 'en' ? 'bg-white shadow-sm text-teal-700' : 'text-slate-500' }}">🇺🇸 EN</a>
                     </div>
                 </div>
 
-                <a href="#kontak" class="mobile-nav-link flex items-center justify-center gap-3 bg-teal-600 text-white px-6 py-5 rounded-2xl font-bold shadow-lg shadow-teal-200 active:scale-95 transition-all">
-                    <i data-lucide="send" class="w-5 h-5"></i>
-                    <span data-t-id="Hubungi Saya" data-t-en="Contact Me">Hubungi Saya</span>
+                <a href="{{ route('home.index', ['locale' => app()->getLocale()]) }}#kontak" class="mobile-nav-link flex items-center justify-center gap-3 bg-teal-600 text-white px-6 py-5 rounded-2xl font-bold shadow-lg shadow-teal-200 active:scale-95 transition-all">
+                    <i data-lucide="send" class="w-5 h-5"></i> <span>Hubungi Saya</span>
                 </a>
             </div>
         </div>
@@ -204,7 +178,7 @@
                         
                         <!-- Main Image Container -->
                         <div class="absolute inset-0 bg-slate-100 rounded-3xl overflow-hidden shadow-2xl">
-                            <img src="{{ asset('storage/images/profile.jpg') }}" alt="Moh Wahyudi" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+                            <img src="{{ asset('images/profile.jpg') }}" alt="Moh Wahyudi" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
                         </div>
 
                         <!-- Floating Badge -->
@@ -285,7 +259,7 @@
     </section>
 
     <!-- PERJALANAN SECTION -->
-    <section id="perjalanan" class="py-24 bg-white relative">
+    <section id="perjalanan" class="py-10 bg-white relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-3">Milestones</h2>
@@ -331,82 +305,109 @@
                 </div>
             </div>
 
-            <div class="text-center mt-16">
-                <a href="#" class="inline-flex items-center gap-2 px-8 py-4 bg-slate-800 text-white rounded-full font-bold hover:bg-slate-900 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                    Profil Lengkap <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            <<div class="text-center mt-16">
+                <a href="{{ route('perjalanan.index', ['locale' => app()->getLocale()]) }}" class="inline-flex items-center gap-2 px-8 py-4 bg-slate-800 text-white rounded-full font-bold hover:bg-slate-900 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    {{ app()->getLocale() == 'id' ? 'Profil Lengkap' : 'Full Profile' }} 
+                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- KARYA SECTION -->
-    <section id="karya" class="py-24 bg-slate-50 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div class="max-w-xl">
-                    <h2 class="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-3">Unit Usaha & Sosial</h2>
-                    <h3 class="text-3xl md:text-5xl font-extrabold text-slate-900">Buah Karya Nyata</h3>
+        <section id="karya" class="pb-24 pt-12 bg-slate-50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6 reveal">
+                    <div>
+                        <h2 class="text-amber-600 font-bold uppercase tracking-widest text-sm mb-2">Unit Usaha & Sosial</h2>
+                        <h3 class="text-3xl md:text-4xl font-extrabold text-slate-900">Buah Karya Nyata</h3>
+                    </div>
+                    <div class="h-px bg-slate-200 flex-grow mx-8 hidden md:block mb-4"></div>
                 </div>
-                <p class="text-slate-500 mt-4 md:mt-0 max-w-sm md:text-right">
-                    Inisiatif strategis yang terus tumbuh memberikan dampak ekonomi dan sosial bagi umat.
-                </p>
+                 <!-- karya 1 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> 
+                        <div class="reveal group bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-amber-500/10 hover:-translate-y-2 transition-all duration-300 flex flex-col h-full">
+                            <div class="relative h-64 overflow-hidden bg-slate-100">
+                                <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-colors z-10"></div>
+                                <img src="{{ asset('images/yahqi.jpg') }}" alt="Yayasan Yahqi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                                <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur text-amber-600 p-2.5 rounded-2xl shadow-sm">
+                                    <i data-lucide="heart" class="w-5 h-5"></i>
+                                </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h4 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-amber-600 transition-colors">YAHQI ( YAYASAN HAFIZH QUR'AN INDONESIA )</h4>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-4">
+                                Pusat pergerakan sosial dan pendidikan yang berfokus pada pemberdayaan santri dengan kemampuan leadership, entrepreneurship, public speaking, dan teknologi.
+                            </p>
+                            <div class="mt-auto pt-6 border-t border-slate-50">
+                                <a href="https://yahqi.com/" target="_blank" class="inline-flex w-full items-center justify-center gap-2 px-5 py-3 bg-slate-50 hover:bg-amber-500 text-slate-700 hover:text-white rounded-xl text-sm font-bold transition-all duration-300 group-hover:shadow-lg group-hover:shadow-amber-500/25">
+                                    <span>Kunjungi Website</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                
+                <!-- karya 2 -->
+                    <div class="reveal group bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-300 flex flex-col h-full delay-100">
+                        <div class="relative h-64 overflow-hidden bg-slate-100">
+                            <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-colors z-10"></div>
+                            <img src="{{ asset('images/bmt.jpg') }}" alt="BMT NU" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                            <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur text-emerald-600 p-2.5 rounded-2xl shadow-sm">
+                                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h4 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-emerald-600 transition-colors">Holding Koperasi BMT NU NGASEM GROUP</h4>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-4">Holding Koperasi Pertama di Indonesia yang mengelola beragam unit bisnis secara terintegrasi dan profesional.</p>
+                            <div class="mt-auto pt-6 border-t border-slate-50">
+                                <a href="https://www.bmtnungasemgroup.com/direksi/show" target="_blank" class="inline-flex w-full items-center justify-center gap-2 px-5 py-3 bg-slate-50 hover:bg-amber-500 text-slate-700 hover:text-white rounded-xl text-sm font-bold transition-all duration-300 group-hover:shadow-lg group-hover:shadow-amber-500/25">
+                                    <span>Kunjungi Website</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- karya 3 -->
+                    <div class="reveal group bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-2 transition-all duration-300 flex flex-col h-full delay-100">
+                        <div class="relative h-64 overflow-hidden bg-slate-100">
+                            <div class="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/0 transition-colors z-10"></div>
+                            <img src="{{ asset('images/kspps.jpg') }}" alt="BMT NU" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out">
+                            <div class="absolute top-4 left-4 z-20 bg-white/90 backdrop-blur text-blue-600 p-2.5 rounded-2xl shadow-sm">
+                                <i data-lucide="briefcase" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                        <div class="p-8 flex flex-col flex-grow">
+                            <h4 class="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">KSPP SYARIAH BMT NU</h4>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-4">
+                                Ekosistem ekonomi syariah inklusif yang melayani umat untuk menghindari riba dan membangun kemandirian ekonomi. Kini telah berkembang pesat menjadi 32 kantor cabang.
+                            </p>
+                            <div class="mt-auto pt-6 border-t border-slate-50">
+                                <a href="https://www.bmtnungasem.com/id" target="_blank" class="inline-flex w-full items-center justify-center gap-2 px-5 py-3 bg-slate-50 hover:bg-amber-500 text-slate-700 hover:text-white rounded-xl text-sm font-bold transition-all duration-300 group-hover:shadow-lg group-hover:shadow-amber-500/25">
+                                    <span>Kunjungi Website</span>
+                                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Karya 1 -->
-                <div class="group relative rounded-4xl overflow-hidden shadow-lg h-112.5">
-                    <img src="{{ asset('storage/images/yahqi.jpg') }}" alt="Yayasan Yahqi" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
-                    <div class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-8 w-full">
-                        <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center mb-4 text-white shadow-lg">
-                            <i data-lucide="heart" class="w-6 h-6"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold text-white mb-2">Yayasan Yahqi</h4>
-                        <p class="text-slate-200 text-sm line-clamp-2">Pusat pergerakan sosial dan pendidikan, berfokus pada pemberdayaan masyarakat Bojonegoro.</p>
-                    </div>
-                </div>
-
-                <!-- Karya 2 -->
-                <div class="group relative rounded-4xl overflow-hidden shadow-lg h-112.5">
-                    <img src="{{ asset('storage/images/bmt.jpg') }}" alt="BMT NU" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
-                    <div class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-8 w-full">
-                        <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center mb-4 text-white shadow-lg">
-                            <i data-lucide="briefcase" class="w-6 h-6"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold text-white mb-2">KSPPS BMT NU</h4>
-                        <p class="text-slate-200 text-sm line-clamp-2">Ekosistem ekonomi syariah inklusif yang kini telah berkembang menjadi 32 kantor cabang.</p>
-                    </div>
-                </div>
-
-                <!-- Karya 3 -->
-                <div class="group relative rounded-4xl overflow-hidden shadow-lg h-112.5">
-                    <img src="{{ asset('storage/images/swalayan.jpg') }}" alt="Swalayan NU" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000">
-                    <div class="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/40 to-transparent"></div>
-                    <div class="absolute bottom-0 left-0 p-8 w-full">
-                        <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center mb-4 text-white shadow-lg">
-                            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
-                        </div>
-                        <h4 class="text-2xl font-bold text-white mb-2">Swalayan NU</h4>
-                        <p class="text-slate-200 text-sm line-clamp-2">Ritel modern berbasis komunitas jam'iyah untuk memenuhi kebutuhan pokok secara mandiri.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- KONTAK SECTION -->
-    <section id="kontak" class="py-24 bg-white relative">
+    <!-- <section id="kontak" class="py-24 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-emerald-600 font-bold uppercase tracking-widest text-sm mb-3">Kontak</h2>
                 <h3 class="text-3xl md:text-5xl font-extrabold text-slate-900">Hubungi Saya</h3>
                 <p class="text-slate-500 mt-4 max-w-xl mx-auto">Silakan tinggalkan pesan untuk peluang kolaborasi atau diskusi strategis.</p>
-            </div>
+            </div> -->
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <!-- <div class="grid grid-cols-1 lg:grid-cols-3 gap-10"> -->
                 <!-- Info Column -->
-                <div class="lg:col-span-1 space-y-6">
+                <!-- <div class="lg:col-span-1 space-y-6">
                     <div class="bg-slate-50 p-8 rounded-4xl border border-slate-100">
                         <h3 class="text-xl font-bold text-slate-800 mb-6 border-b border-slate-200 pb-4">Informasi Kontak</h3>
                         <div class="space-y-6">
@@ -423,9 +424,9 @@
                                 <div><h4 class="text-sm font-bold text-slate-900">Email</h4><p class="text-slate-500 text-sm">info@yahqipublisher.com</p></div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Map Box (Lebih Kecil & di bawah Info) -->
-                    <div class="w-full h-64 bg-gray-200 rounded-3xl overflow-hidden shadow-sm border border-gray-100">
+                    <!-- <div class="w-full h-64 bg-gray-200 rounded-3xl overflow-hidden shadow-sm border border-gray-100">
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.612485142049!2d111.7286!3d-7.1546!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7779aaaaaaaaaa%3A0xaaaaaaa!2sBMT+NU+Ngasem!5e0!3m2!1sid!2sid!4v1234567890" 
                             width="100%" 
@@ -436,10 +437,10 @@
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Form Column -->
-                <div class="lg:col-span-2">
+                <!-- <div class="lg:col-span-2">
                     <div class="bg-white p-8 md:p-10 rounded-4xl shadow-2xl shadow-slate-200/50 border border-slate-100 h-full">
                         <form action="#" method="POST" class="space-y-6">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -464,7 +465,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- FOOTER -->
     <footer class="bg-slate-950 text-white pt-20 pb-10 overflow-hidden relative">
@@ -620,7 +621,7 @@
                     nav.classList.remove('shadow-xl');
                 }
             });
-
+            
             // 4. Reveal Animation on Scroll
             const reveals = document.querySelectorAll('.reveal');
             const revealOnScroll = () => {
