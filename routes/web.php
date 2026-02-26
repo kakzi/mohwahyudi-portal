@@ -1,10 +1,13 @@
 <?php
 
 
+use App\Http\Controllers\TentangController;
 use App\Models\HomeSlider;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KaryaController;
+use App\Http\Controllers\PerjalananController;
 use App\Http\Controllers\Helpers\LanguageController;
 
 
@@ -25,6 +28,17 @@ Route::group([
 
     Route::get('/', [HomeController::class, 'index'])
         ->name('home.index');
+
+    Route::get('/karya', [KaryaController::class, 'index'])
+        ->name('karya.index');
+
+    Route::get('/perjalanan', [PerjalananController::class, 'index'])
+        ->name('perjalanan.index');
+
+    Route::get('/tentang', [TentangController::class, 'index'])
+        ->name('tentang.index');
+        
+        
 
 });
 // API route untuk get current language
